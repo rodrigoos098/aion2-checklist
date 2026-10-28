@@ -1,0 +1,1125 @@
+{
+ "meta": {
+  "game": "Aion 2 Global",
+  "region": "SA",
+  "generated": "2026-10-28",
+  "daily_reset": "04:00 BRT (07:00 UTC)",
+  "weekly_reset": "quarta 04:00 BRT",
+  "primary_sources": [
+   "wbD-bTHReQQ",
+   "nAloWmvAodU"
+  ],
+  "videos": {
+   "CONTENT": "https://youtu.be/wbD-bTHReQQ",
+   "ALTS": "https://youtu.be/nAloWmvAodU",
+   "DUTY": "https://youtu.be/B6wHEcb1HD0",
+   "GP": "https://youtu.be/sU3heVsRb5o",
+   "GLB": "https://youtu.be/5klnmd6NXYU",
+   "P1021": "https://youtu.be/t8nVij7qHwc",
+   "GS1400": "https://youtu.be/B5_DMcXlzwk",
+   "GS2100": "https://youtu.be/u3Wb6tH0mZs",
+   "GS3000": "https://youtu.be/C_MpiwBEoJo"
+  },
+  "alt_summary_ptbr": "Segundo o TheWhelps (Alts Explained), uma alt 45 precisa de cerca de 80 min por semana: 3 Ascension Trials (~10 min), Abyss Corridors (até ~13 min, 2x por semana) e ~10 runs de dungeon com a energia natural (~60 min). Duty, Daily Dungeon, Shugo, Invasion e Command Scrolls são por servidor, então só o main precisa fazer.",
+  "transcription_note": "YouTube bloqueou legendas e transcrições (HTTP 429/IP block). Transcrevi o áudio localmente com faster-whisper small.en, então nomes próprios podem ter erros (ex.: Akana=Arcana, Janus=Genus, Audio energy=Odyle)."
+ },
+ "items": [
+  {
+   "id": "duty",
+   "name": "Duty Quests (Missões de Dever) — 5/dia",
+   "frequency": "daily",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Fazer as 5 missões do Journal > Duty. Limite por servidor: fazer só em 1 personagem (o main). Reroll barato: priorizar Hidden Cube Key, chave Shugo, ticket Nightmare e Odyle Energy nos 2 primeiros slots (100%/50%); não rerolar mais de ~6x.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "00:21",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=21"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "00:39",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=39"
+    },
+    {
+     "type": "video",
+     "video_id": "B6wHEcb1HD0",
+     "timestamp": "01:29",
+     "url": "https://youtu.be/B6wHEcb1HD0?t=89"
+    },
+    {
+     "type": "video",
+     "video_id": "B6wHEcb1HD0",
+     "timestamp": "05:05",
+     "url": "https://youtu.be/B6wHEcb1HD0?t=305"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "viki",
+     "url": "https://aion2.vi.ki/endgame-routine"
+    }
+   ]
+  },
+  {
+   "id": "supply_request",
+   "name": "Supply Requests (Pedidos de Suprimento)",
+   "frequency": "daily",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": true,
+   "description_ptbr": "Pedidos diários (Emergency), semanais e da temporada: entregar itens/materiais em troca de Abyss Points e recompensas. Só entregar se valer mais que vender o material no mercado.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "00:49",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=49"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "18:49",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1129"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ],
+   "notes": "Trecho 00:53–01:23 do vídeo não foi transcrito (provável fala sobre preços). Por-personagem segundo o resumo do TheWhelps (18:49)."
+  },
+  {
+   "id": "odyle_energy",
+   "name": "Odyle Energy — não deixar no cap",
+   "frequency": "daily",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Energia regenera 15 a cada 3h (120/dia) por personagem. Gastar em Expedition/Transcendence (cubo = 40; 80 abrindo 2 com sub). Não ficar no cap; energias extras no inventário não se perdem até o fim da temporada.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "05:31",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=331"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "06:19",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=379"
+    },
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "06:32",
+     "url": "https://youtu.be/5klnmd6NXYU?t=392"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "conflict": "Cap: onlyfarms diz 840; grimvane e thegameswiki dizem 560 sem membership e 840 com. Exploration custa 20 segundo grimvane."
+  },
+  {
+   "id": "nightmare",
+   "name": "Nightmare — usar tickets (2/dia, máx 14)",
+   "frequency": "daily",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Ganha 2 tickets por dia, acumula até 14. Subir os bosses até o nível 10 para liberar o próximo (recompensa de first clear); depois dá pra usar ticket de clear instantâneo. Na alt, os pontos Nightmare servem pra skins.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "04:20",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=260"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "19:26",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1166"
+    },
+    {
+     "type": "video",
+     "video_id": "u3Wb6tH0mZs",
+     "timestamp": "03:30",
+     "url": "https://youtu.be/u3Wb6tH0mZs?t=210"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "09:08",
+     "url": "https://youtu.be/nAloWmvAodU?t=548"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "notes": "Pode acumular até 14, mas não passar disso (verificar ao menos a cada 7 dias)."
+  },
+  {
+   "id": "shugo_keys",
+   "name": "Shugo Festival — gastar chaves",
+   "frequency": "daily",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Minigames toda hora cheia. Ganha chaves por dia; não deixar no cap. Recompensa vira Centuryroot Tokens para a loja Shugo.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "02:51",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=171"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "18:55",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1135"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "07:53",
+     "url": "https://youtu.be/nAloWmvAodU?t=473"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "odyle",
+     "url": "https://odyle.net/en/cuaderno/tienda-shugo-festival/"
+    }
+   ],
+   "conflict": "TheWhelps (KR): 2 chaves/dia, máx 14, por servidor. odyle.net (global): 3/dia por servidor, cap 12 (21 com membership). grimvane: além do contador do servidor, há um contador por personagem (4/dia, cap 28). Confirmar no jogo."
+  },
+  {
+   "id": "dimensional_invasion",
+   "name": "Dimensional Invasion — gastar chaves (1/dia, máx 7)",
+   "frequency": "daily",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Evento rápido (~2 min) que aparece aos :30 em parte das horas. Chave da recompensa: 1/dia, até 7, compartilhada no servidor.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "03:14",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=194"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "19:04",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1144"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ]
+  },
+  {
+   "id": "login_events",
+   "name": "Login diário / eventos de presença",
+   "frequency": "daily",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "event",
+   "optional": false,
+   "description_ptbr": "Logar em cada personagem que participa de eventos: Odyle Energy Boost (28/out–11/nov, Odyle por correio, expira em 7 dias), presença do Trick or Treat (até 04/nov), missão de login do Daeva Pass.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "05:40",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=340"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "viki",
+     "url": "https://aion2.vi.ki/endgame-routine"
+    }
+   ],
+   "conflict": "Odyle Boost: TheWhelps (27/out) diz 4 por dia; grimvane diz 2 por dia.",
+   "expires": "2026-11-11"
+  },
+  {
+   "id": "field_bosses",
+   "name": "Field bosses / Abyss bosses (Kaira, Argo, Nahma)",
+   "frequency": "daily",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": true,
+   "description_ptbr": "Oportunista: entrar quando estiver online. Kaira a cada 3h, Nahma sex/dom 21h, Executors após o Siege (horário do servidor).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "13:36",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=816"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ],
+   "conflict": "TheWhelps (KR): Kaira a cada 4h, Siege qua/sáb 22h. grimvane (global, 27/out): Kaira a cada 3h, Siege seg/qui/sáb 21h."
+  },
+  {
+   "id": "command_scrolls",
+   "name": "Command Scrolls PvE — comprar 12",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Comprar os 12 do Command Merchant na capital antes do reset. Os comprados não expiram; o que expira é a compra não feita.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "07:42",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=462"
+    },
+    {
+     "type": "video",
+     "video_id": "sU3heVsRb5o",
+     "timestamp": "18:29",
+     "url": "https://youtu.be/sU3heVsRb5o?t=1109"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "viki",
+     "url": "https://aion2.vi.ki/endgame-routine"
+    }
+   ]
+  },
+  {
+   "id": "abyss_command_scrolls",
+   "name": "Abyss Command Scrolls — comprar 20",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pvp",
+   "optional": false,
+   "description_ptbr": "Comprar os 20 no Command Merchant do Abyss. Fazer mesmo sendo PvE (Stigma shards, enhance/amplify stones, AP, cristais de pet). Comprados não expiram.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "12:24",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=744"
+    },
+    {
+     "type": "video",
+     "video_id": "B6wHEcb1HD0",
+     "timestamp": "07:06",
+     "url": "https://youtu.be/B6wHEcb1HD0?t=426"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ]
+  },
+  {
+   "id": "ascension_trial",
+   "name": "Ascension Trial — 3 runs",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "3 entradas por semana em cada personagem, ~5 min cada. Dificuldade a cada 500 GS. Fazer no fim da semana (personagem mais forte). Recompensas vão pro storage compartilhado (exceto Stigma Shard e Enhance Stones).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "03:43",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=223"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "06:19",
+     "url": "https://youtu.be/nAloWmvAodU?t=379"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ]
+  },
+  {
+   "id": "daily_dungeon",
+   "name": "Daily Dungeon — 14 entradas (+21 com sub)",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "14 tickets/semana por servidor (apesar do nome, é semanal). Com sub dá pra comprar +21; acumula até 30. Enhance Stones primeiro no early game.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "01:50",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=110"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "19:38",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1178"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "viki",
+     "url": "https://aion2.vi.ki/endgame-routine"
+    }
+   ]
+  },
+  {
+   "id": "dungeon_runs",
+   "name": "Expedition / Transcendence — usar energia",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Rodar dungeons com a energia natural (~10 runs/semana por alt). Atenção à penalidade de Kinah do servidor: a partir da 84ª run da semana somando todos os personagens a Kinah cai (80%, depois 60%...). Transcendence tem contador separado (até 55 com 100%).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "04:08",
+     "url": "https://youtu.be/nAloWmvAodU?t=248"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "07:09",
+     "url": "https://youtu.be/nAloWmvAodU?t=429"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "06:33",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=393"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "notes": "grimvane: Conquest acumula 1 recompensa a cada 8h (máx 21), Transcendence 1 a cada 12h (máx 14); kills de boss final 35 e 28 por semana.",
+   "conflict": "Patamares da penalidade: TheWhelps fala 84/105/126/147 (transcrição confusa); vi.ki/Society of Gaming fala 83/104/125."
+  },
+  {
+   "id": "sanctuary",
+   "name": "Sanctuary (raid 10 pessoas) — 1 clear",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Raid de fim de temporada, 1 clear/semana. Ludra volta em 04/nov: Normal exige 2800 de item level e Hard 3000.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "07:19",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=439"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "19:31",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1171"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ]
+  },
+  {
+   "id": "abyss_time",
+   "name": "Tempo no Abyss — 7h por camada",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": true,
+   "description_ptbr": "7h/semana por camada (14h nas camadas Middle e Upper com membership). Horas não usadas expiram no reset. O teto de Abyss Points acumula semana a semana, então não se perde AP.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "09:45",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=585"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "10:38",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=638"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ]
+  },
+  {
+   "id": "abyss_corridor",
+   "name": "Abyss Corridors (após o Artifact Siege)",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": false,
+   "description_ptbr": "Para cada corredor que a facção vencer, 1 entrada por personagem até o próximo Siege (~2 min, Kinah e AP). Acontece de 2 a 3 vezes por semana.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "13:02",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=782"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "06:33",
+     "url": "https://youtu.be/nAloWmvAodU?t=393"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "conflict": "Dias do Siege: TheWhelps (KR) qua/sáb; grimvane (global) seg/qui/sáb 21h no horário do servidor."
+  },
+  {
+   "id": "battlefield",
+   "name": "Battlefield 10v10 — 3 vitórias",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": false,
+   "description_ptbr": "Equalizado, então a alt 45 já consegue jogar. São 3 recompensas de vitória por semana por personagem. A fila abre em janelas de horário (no KR, 11–14h e 20–22h).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "15:15",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=915"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "20:30",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=1230"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ]
+  },
+  {
+   "id": "arena",
+   "name": "Arena 1v1 / 5v5",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": true,
+   "description_ptbr": "Até 30 recompensas de vitória por semana em cada modo. Também é fonte de Stigma Shards.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "15:06",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=906"
+    },
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "03:30",
+     "url": "https://youtu.be/5klnmd6NXYU?t=210"
+    }
+   ]
+  },
+  {
+   "id": "odyle_morph",
+   "name": "Substance Morph — 20 Odyle Energy",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Craftar até 20 Odyle Energy por personagem por semana (mudou em 14/out; antes eram 16 por servidor + 4 por personagem).",
+   "sources": [
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "web",
+     "site": "tgw",
+     "url": "https://thegameswiki.com/aion-2/wiki/global-material-farming-planner"
+    }
+   ],
+   "notes": "Não está nos vídeos do TheWhelps; vem da web."
+  },
+  {
+   "id": "wind_breeze_shop",
+   "name": "Loja Wind Breeze (sub) — compras semanais",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Odyle Energy (20 por personagem), tickets extras de Daily Dungeon (21, só no main) e Soul Crystals (só no main).",
+   "sources": [
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "02:28",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=148"
+    }
+   ]
+  },
+  {
+   "id": "daeva_pass",
+   "name": "Daeva Pass — cap semanal de EXP",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "event",
+   "optional": false,
+   "description_ptbr": "Até 50.000 de EXP do pass por personagem por semana. As missões são Sealed Dungeons, Strongholds, Shugo Festival e login. O pass vai até 16/dez.",
+   "sources": [
+    {
+     "type": "web",
+     "site": "viki",
+     "url": "https://aion2.vi.ki/endgame-routine"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "expires": "2026-12-16"
+  },
+  {
+   "id": "season_missions",
+   "name": "Season Missions semanais",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Missões semanais da temporada. Duas delas dão Abyss Entry Stone, que vale 1h de Abyss cada.",
+   "sources": [
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    },
+    {
+     "type": "video",
+     "video_id": "u3Wb6tH0mZs",
+     "timestamp": "05:17",
+     "url": "https://youtu.be/u3Wb6tH0mZs?t=317"
+    }
+   ]
+  },
+  {
+   "id": "rise_challenge",
+   "name": "Evento Rise to the Challenge — Spiritstones",
+   "frequency": "weekly",
+   "applies_to": "main",
+   "limit_scope": "server",
+   "category": "event",
+   "optional": true,
+   "description_ptbr": "Wind Breeze > Special vende 30 Resurrection Spiritstones a 25k cada e depois mais 30 a 50k, por semana e por servidor. Vai até 16/dez, quando os Spiritstones do evento são apagados.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "t8nVij7qHwc",
+     "timestamp": "04:12",
+     "url": "https://youtu.be/t8nVij7qHwc?t=252"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "expires": "2026-12-16"
+  },
+  {
+   "id": "trick_or_treat",
+   "name": "Trick or Treat — missões semanais e moedas",
+   "frequency": "weekly",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "event",
+   "optional": false,
+   "description_ptbr": "Missões semanais do evento dão Pumpkin Coins. Trocar as moedas por Odyle, Rift Stones, tickets e chaves Shugo antes de 04/nov.",
+   "sources": [
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    },
+    {
+     "type": "web",
+     "site": "onlyfarms",
+     "url": "https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/"
+    }
+   ],
+   "expires": "2026-11-04"
+  },
+  {
+   "id": "shugo_shop",
+   "name": "Loja Shugo — gastar Centuryroot Tokens",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "shop",
+   "optional": false,
+   "description_ptbr": "Ordem de compra: Daevanion Crystals (50/100/200/400 tokens, total de 50 por personagem, limite vitalício) e depois Stigma Shards (35 por personagem, vitalício). Soul Crystal x100 (30/mês) e Radiant Odyle (3/mês) renovam todo mês.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "03:15",
+     "url": "https://youtu.be/5klnmd6NXYU?t=195"
+    },
+    {
+     "type": "video",
+     "video_id": "u3Wb6tH0mZs",
+     "timestamp": "03:15",
+     "url": "https://youtu.be/u3Wb6tH0mZs?t=195"
+    },
+    {
+     "type": "video",
+     "video_id": "B5_DMcXlzwk",
+     "timestamp": "07:11",
+     "url": "https://youtu.be/B5_DMcXlzwk?t=431"
+    },
+    {
+     "type": "web",
+     "site": "wikily",
+     "url": "https://wikily.gg/aion-2/shops/festival-shop"
+    },
+    {
+     "type": "web",
+     "site": "odyle",
+     "url": "https://odyle.net/en/cuaderno/tienda-shugo-festival/"
+    }
+   ]
+  },
+  {
+   "id": "nightmare_shop",
+   "name": "Loja Nightmare — gastar Phantasmal Fragments",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "shop",
+   "optional": false,
+   "description_ptbr": "No main: Daevanion Crystals (50 por personagem), Stigma Shards (35), a estátua do Zekel e a asa Nightmare. Na alt: skins.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "B6wHEcb1HD0",
+     "timestamp": "03:28",
+     "url": "https://youtu.be/B6wHEcb1HD0?t=208"
+    },
+    {
+     "type": "video",
+     "video_id": "u3Wb6tH0mZs",
+     "timestamp": "03:24",
+     "url": "https://youtu.be/u3Wb6tH0mZs?t=204"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "09:08",
+     "url": "https://youtu.be/nAloWmvAodU?t=548"
+    },
+    {
+     "type": "web",
+     "site": "tgw",
+     "url": "https://thegameswiki.com/aion-2/wiki/global-material-farming-planner"
+    }
+   ]
+  },
+  {
+   "id": "season_shop",
+   "name": "Loja da Temporada — moeda por personagem",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "shop",
+   "optional": false,
+   "description_ptbr": "A moeda é por personagem. No main, priorizar a asa. Nas alts, gastar em materiais e skins (skins dão stats).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "08:42",
+     "url": "https://youtu.be/nAloWmvAodU?t=522"
+    }
+   ]
+  },
+  {
+   "id": "hidden_cubes",
+   "name": "Abrir Hidden Cubes com as chaves",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "Usar as Hidden Cube Keys guardadas. Cada cubo dá 1000 Soul Crystals, Selentium, Soul Codex e chance de Odyle Energy.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "B6wHEcb1HD0",
+     "timestamp": "01:34",
+     "url": "https://youtu.be/B6wHEcb1HD0?t=94"
+    },
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "12:12",
+     "url": "https://youtu.be/5klnmd6NXYU?t=732"
+    }
+   ]
+  },
+  {
+   "id": "extra_energy_expiry",
+   "name": "Gastar Odyle Energy extra antes do fim da temporada",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pve",
+   "optional": false,
+   "description_ptbr": "As energias extras (sub, eventos, conquistas, compensação) duram só até o fim da temporada, em 16/dez. Dá pra guardar até 2000 de energia extra no inventário.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "05:53",
+     "url": "https://youtu.be/nAloWmvAodU?t=353"
+    },
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "21:14",
+     "url": "https://youtu.be/5klnmd6NXYU?t=1274"
+    }
+   ],
+   "expires": "2026-12-16"
+  },
+  {
+   "id": "kinah_transfer",
+   "name": "Passar Kinah das alts pro main",
+   "frequency": "recurring",
+   "applies_to": "alt",
+   "limit_scope": "account",
+   "category": "economy",
+   "optional": false,
+   "description_ptbr": "Kinah normal vai pelo storage compartilhado. Kinah bound não passa, então o main coloca o item no storage e a alt melhora ele com a Kinah bound.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "02:39",
+     "url": "https://youtu.be/nAloWmvAodU?t=159"
+    },
+    {
+     "type": "video",
+     "video_id": "nAloWmvAodU",
+     "timestamp": "03:00",
+     "url": "https://youtu.be/nAloWmvAodU?t=180"
+    }
+   ]
+  },
+  {
+   "id": "genus_soul_crystals",
+   "name": "Usar Soul Crystals / cristais de pet no Genus",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "progression",
+   "optional": true,
+   "description_ptbr": "Gastar Soul Crystals e cristais de pet no Genus Insight. Pets: max level 3, cerca de 105 kills. Kills além do máximo dão cristais. Farm de pet é conteúdo de preenchimento.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "08:01",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=481"
+    },
+    {
+     "type": "video",
+     "video_id": "5klnmd6NXYU",
+     "timestamp": "13:36",
+     "url": "https://youtu.be/5klnmd6NXYU?t=816"
+    }
+   ]
+  },
+  {
+   "id": "aria_fragments",
+   "name": "Aria/Ariel — juntar 30 por dungeon Hard",
+   "frequency": "recurring",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "progression",
+   "optional": false,
+   "description_ptbr": "Substance Morph: 100 Aria Fragments viram 1 Daevanion Crystal Aria, até 30 vezes por personagem (+GS). Rodar cada Hard mode até ter 30 e depois trocar de dungeon. O excedente vira Enhance Stones (1 fragmento = 5).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "t8nVij7qHwc",
+     "timestamp": "01:36",
+     "url": "https://youtu.be/t8nVij7qHwc?t=96"
+    },
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "04:40",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=280"
+    },
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "08:14",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=494"
+    }
+   ]
+  },
+  {
+   "id": "horizontal",
+   "name": "Conteúdo horizontal (uma vez por personagem)",
+   "frequency": "one-off",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "progression",
+   "optional": false,
+   "description_ptbr": "Fazer Sealed Dungeons, Strongholds, side quests e penas (Empyrean Traces), tanto no mapa da sua facção quanto no inimigo, além das penas do Abyss (Monolith nível 16, +36 GS). Sealed dungeons dentro do Rift dão Kinah, AP e Enhance Stones.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "B5_DMcXlzwk",
+     "timestamp": "01:47",
+     "url": "https://youtu.be/B5_DMcXlzwk?t=107"
+    },
+    {
+     "type": "video",
+     "video_id": "B5_DMcXlzwk",
+     "timestamp": "04:30",
+     "url": "https://youtu.be/B5_DMcXlzwk?t=270"
+    },
+    {
+     "type": "video",
+     "video_id": "B5_DMcXlzwk",
+     "timestamp": "05:32",
+     "url": "https://youtu.be/B5_DMcXlzwk?t=332"
+    },
+    {
+     "type": "video",
+     "video_id": "sU3heVsRb5o",
+     "timestamp": "17:33",
+     "url": "https://youtu.be/sU3heVsRb5o?t=1053"
+    }
+   ]
+  },
+  {
+   "id": "trial_season_mission",
+   "name": "Tower of Trials — score 1000/3000/4000",
+   "frequency": "one-off",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "progression",
+   "optional": false,
+   "description_ptbr": "Missão da temporada: os scores 1000, 3000 e 4000 no Ascension Trial (Hard) dão Mysterious Crystal, usado no card dourado de Arcana.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "u3Wb6tH0mZs",
+     "timestamp": "05:04",
+     "url": "https://youtu.be/u3Wb6tH0mZs?t=304"
+    }
+   ]
+  },
+  {
+   "id": "rift",
+   "name": "Spacetime Rift",
+   "frequency": "recurring",
+   "applies_to": "both",
+   "limit_scope": "character",
+   "category": "pvp",
+   "optional": true,
+   "description_ptbr": "Portal a cada 3h (a partir das 02:00 no horário do servidor), fica aberto 10 min, e você fica até 1h lá dentro. Serve pra pets e quests do outro lado. Abre no lvl 45.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "wbD-bTHReQQ",
+     "timestamp": "15:43",
+     "url": "https://youtu.be/wbD-bTHReQQ?t=943"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ]
+  },
+  {
+   "id": "ludra",
+   "name": "Ludra (raid) — volta em 04/nov",
+   "frequency": "one-off",
+   "applies_to": "main",
+   "limit_scope": "character",
+   "category": "event",
+   "optional": false,
+   "description_ptbr": "Normal exige 2800 de GS e Hard 3000. Quem limpar antes de 25/nov ganha o título Ludra Hunter. Também tem Daeva Boot Camp a partir de 04/nov.",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "03:12",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=192"
+    },
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "05:05",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=305"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "expires": "2026-11-25"
+  },
+  {
+   "id": "twitch_drops",
+   "name": "Twitch Drops do Ludra",
+   "frequency": "one-off",
+   "applies_to": "main",
+   "limit_scope": "account",
+   "category": "event",
+   "optional": true,
+   "description_ptbr": "Assistir até 14h de stream com drops ativados entre 04/nov e 18/nov. Dá Odyle Energy (6 unidades segundo o TheWhelps).",
+   "sources": [
+    {
+     "type": "video",
+     "video_id": "C_MpiwBEoJo",
+     "timestamp": "05:58",
+     "url": "https://youtu.be/C_MpiwBEoJo?t=358"
+    },
+    {
+     "type": "web",
+     "site": "grimvane",
+     "url": "https://aion2.grimvane.app/abyss-boss-timers/"
+    }
+   ],
+   "expires": "2026-11-18"
+  }
+ ]
+}
