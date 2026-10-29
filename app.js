@@ -9,8 +9,6 @@
   var ITEM = {}; D.items.forEach(function (i) { ITEM[i.id] = i; });
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var SVG = "http://www.w3.org/2000/svg";
-
   /* ---------- reset (em UTC: 07:00 UTC = 04:00 em Brasília) ---------- */
   function dailyBoundary(now) {
     var d = new Date(now);
@@ -113,39 +111,29 @@
     (kids || []).forEach(function (c) { if (c != null) e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
     return e;
   }
-  function svgEl(tag, attrs, parent) {
-    var n = document.createElementNS(SVG, tag);
-    Object.keys(attrs || {}).forEach(function (k) { n.setAttribute(k, attrs[k]); });
-    if (parent) parent.appendChild(n);
-    return n;
-  }
-
-  /* Sigilos desenhados pra cada classe, num grid de 24. */
-  var SIGIL = {
-    gladiator: "M12 2.5 14 5v10h-4V5zM7 15h10M12 15v4.5M12 21.5h.01",
-    templar: "M12 3 19 5.8V11c0 4.6-3 8-7 10-4-2-7-5.4-7-10V5.8zM12 8v8M9 11h6",
-    assassin: "M5 3.5l8.5 9.5M19 3.5 10.5 13M11 15.5l2.5-2.5M13 15.5 10.5 13M8 18l1.8-1.8M16 18l-1.8-1.8M6.5 19.5 8 18M17.5 19.5 16 18",
-    ranger: "M7 3c7 3.5 7 14.5 0 18M7 3v18M3.5 12h13M14 9.5l2.5 2.5-2.5 2.5",
-    sorcerer: "M12 2.8c3.2 4 5.5 6.6 5.5 10.4a5.5 5.5 0 0 1-11 0c0-2.3 1.1-3.9 2.3-5 .1 2.1 1 3.3 2.2 3.5-.3-3.4.2-6 1-8.9z",
-    spiritmaster: "M12 12a1.6 1.6 0 0 1 3.2 0 3.2 3.2 0 0 1-6.4 0 4.8 4.8 0 0 1 9.6 0A6.4 6.4 0 0 1 5.6 12M19.5 4.5l-.01.01M4.5 19.5h.01",
-    cleric: "M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7M6.3 6.3l1.6 1.6M16.1 16.1l1.6 1.6M17.7 6.3l-1.6 1.6M7.9 16.1l-1.6 1.6",
-    chanter: "M12 9v12M12 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M7.5 8c.8 2 2.5 3.3 4.5 3.3S15.7 10 16.5 8M6 12.5c1.2 2.4 3.4 3.8 6 3.8s4.8-1.4 6-3.8"
-  };
-  function sigil(cls) {
-    var s = svgEl("svg", { viewBox: "0 0 24 24", class: "sigil", "aria-hidden": "true", style: "--tint: var(--c-" + cls + ")" });
-    svgEl("path", { d: SIGIL[cls] }, s);
-    return s;
-  }
-  function ring(done, total, center) {
-    var r = 22, c = 2 * Math.PI * r, pct = total ? done / total : 0;
-    var s = svgEl("svg", { viewBox: "0 0 52 52", width: "52", height: "52", "aria-hidden": "true" });
-    svgEl("circle", { cx: "26", cy: "26", r: r, fill: "none", "stroke-width": "3", class: "ring-track" }, s);
-    svgEl("circle", { cx: "26", cy: "26", r: r, fill: "none", "stroke-width": "3", class: "ring-fill", "stroke-linecap": pct > 0 ? "round" : "butt",
-      "stroke-dasharray": c.toFixed(2), "stroke-dashoffset": (c * (1 - pct)).toFixed(2), transform: "rotate(-90 26 26)" }, s);
-    return el("span", { class: "who-ring" + (total && done === total ? " full" : "") }, [s, center]);
-  }
   function bar(done, total) {
-    return el("div", { class: "bar", "aria-hidden": "true" }, [el("i", { style: "width:" + (total ? done / total * 100 : 0).toFixed(2) + "%" })]);
+    return el("span", { class: "bar", "aria-hidden": "true" }, [el("i", { style: "width:" + (total ? done / total * 100 : 0).toFixed(2) + "%" })]);
+  }
+  /* "Duty — 5 missões" vira nome + complemento em cinza */
+  function nameParts(name) {
+    var i = name.indexOf(" — ");
+    return i < 0 ? [name, ""] : [name.slice(0, i), name.slice(i + 3)];
+  }
+  function srcLinks(it) {
+    return el("p", { class: "srcs" }, ["Fontes: "].concat(it.sources.reduce(function (a, s, i) {
+      if (i) a.push(" · ");
+      a.push(el("a", { href: s.url, target: "_blank", rel: "noopener", text: s.label }));
+      return a;
+    }, [])));
+  }
+  function detailBody(it, cls) {
+    var kids = [el("p", { text: it.description })];
+    if (it.conflict) kids.push(el("p", null, [el("b", { text: "Varia entre fontes. " }), it.conflict]));
+    if (it.notes) kids.push(el("p", { text: it.notes }));
+    if (cls && it.scope === "server") kids.push(el("p", { class: "faint", text: "Limite por servidor, por isso só aparece no main." }));
+    if (it.scope === "account") kids.push(el("p", { class: "faint", text: "Vale pra conta inteira." }));
+    if (it.sources && it.sources.length) kids.push(srcLinks(it));
+    return kids;
   }
 
   /* ---------- relógios ---------- */
@@ -155,125 +143,85 @@
     if (h) return h + "h " + (mm < 10 ? "0" : "") + mm + "min";
     return mm + "min";
   }
-  var WEEK = ["qua", "qui", "sex", "sáb", "dom", "seg", "ter"];
-  function renderWeek(now) {
-    var idx = Math.floor((dailyBoundary(now) - weeklyBoundary(now)) / DAY), ol = $("#week");
-    if (ol.dataset.i === String(idx)) return;
-    ol.dataset.i = String(idx);
-    ol.replaceChildren.apply(ol, WEEK.map(function (d, i) { return el("li", { class: i < idx ? "past" : i === idx ? "today" : null, text: d }); }));
-  }
   function tick() {
     var now = Date.now();
     var nd = dailyBoundary(now) + DAY, nw = weeklyBoundary(now) + 7 * DAY;
     var dc = $("#dailyCount"), wc = $("#weeklyCount"), dt = dur(nd - now), wt = dur(nw - now);
     if (dc.textContent !== dt) dc.textContent = dt;
     if (wc.textContent !== wt) wc.textContent = wt;
-    renderWeek(now);
     if (state.lastDaily !== dailyBoundary(now) || state.lastWeekly !== weeklyBoundary(now)) { prune(); renderAll(); toast("Reset aplicado"); }
   }
 
   /* ---------- checklist ---------- */
   var selected = null;
   function renderFinding() {
-    var chars = visibleChars(), dl = 0, wl = 0, worst = null, worstLeft = 0;
-    chars.forEach(function (c) {
-      var a = progress(c.id, "daily"), b = progress(c.id, "weekly"), left = a.total - a.done;
-      dl += left; wl += b.total - b.done;
-      if (left > worstLeft) { worst = c.id; worstLeft = left; }
+    var dl = 0, wl = 0;
+    visibleChars().forEach(function (c) {
+      var a = progress(c.id, "daily"), b = progress(c.id, "weekly");
+      dl += a.total - a.done; wl += b.total - b.done;
     });
-    var n = chars.length, p = $("#finding"), who = n === 1 ? "no main" : "nos " + n + " personagens";
-    if (!dl && !wl) { p.textContent = "Tudo feito " + who + ". Agora é esperar o reset."; return; }
-    var parts = [];
-    if (dl) parts.push(el("b", { text: dl + (dl === 1 ? " diária" : " diárias") }));
-    if (dl && wl) parts.push(" e ");
-    if (wl) parts.push(el("b", { text: wl + (wl === 1 ? " semanal" : " semanais") }));
-    var kids = [dl + wl === 1 ? "Falta " : "Faltam "].concat(parts, [" " + who + "."]);
-    if (!dl) kids.push(" Diárias zeradas.");
-    else if (n > 1) kids.push(" Mais atrasado hoje: " + label(worst) + ", com " + worstLeft + (worstLeft === 1 ? " pendente." : " pendentes."));
+    var p = $("#finding");
+    if (!dl && !wl) { p.textContent = "Tudo feito. Agora é esperar o reset."; return; }
+    if (!dl) { p.replaceChildren("Diárias feitas. Faltam ", el("b", { text: wl + (wl === 1 ? " semanal" : " semanais") }), "."); return; }
+    var kids = [dl + wl === 1 ? "Falta " : "Faltam ", el("b", { text: dl + (dl === 1 ? " diária" : " diárias") })];
+    if (wl) kids.push(" e ", el("b", { text: wl + (wl === 1 ? " semanal" : " semanais") }));
+    kids.push(visibleChars().length > 1 ? " no total." : ".");
     p.replaceChildren.apply(p, kids);
+  }
+  function metaOf(cls) {
+    var nick = state.chars[cls].nick;
+    return (nick ? BY_ID[cls].name + " · " : "") + role(cls);
   }
   function renderRoster() {
     var ol = $("#roster"); ol.replaceChildren();
     visibleChars().forEach(function (c) {
-      var a = progress(c.id, "daily"), b = progress(c.id, "weekly"), isMain = c.id === state.main;
-      var nick = state.chars[c.id].nick;
+      var a = progress(c.id, "daily"), b = progress(c.id, "weekly");
       ol.appendChild(el("li", null, [el("button", {
-        class: "who", type: "button", "aria-pressed": c.id === selected ? "true" : "false",
-        "aria-label": label(c.id) + (nick ? ", " + c.name : "") + ", " + role(c.id) + ". Diárias " + a.done + " de " + a.total + ", semanais " + b.done + " de " + b.total,
+        class: "who" + (a.total && a.done === a.total ? " full" : ""), type: "button", "aria-pressed": c.id === selected ? "true" : "false",
+        "aria-label": label(c.id) + ", " + metaOf(c.id) + ". Diárias " + a.done + " de " + a.total + ", semanais " + b.done + " de " + b.total,
         onclick: function () { select(c.id, true); }
       }, [
-        ring(a.done, a.total, sigil(c.id)),
-        el("span", { class: "who-day" }, [el("b", { class: "num", text: a.done + "/" + a.total }), el("span", { text: "diárias" })]),
-        el("span", { class: "who-text" }, [
-          el("span", { class: "who-name", text: label(c.id) }),
-          el("span", { class: "who-meta" }, isMain ? [el("b", { text: "main" }), nick ? " · " + c.name : ""] : [nick ? "alt · " + c.name : "alt"])
-        ]),
-        el("span", { class: "who-week" }, [bar(b.done, b.total), el("span", { class: "num", text: b.done + "/" + b.total })]),
-        el("span", { class: "who-mini num", text: a.done + "/" + a.total + " · " + b.done + "/" + b.total })
+        el("span", { class: "who-top" }, [el("span", { class: "who-name", text: label(c.id) }), el("span", { class: "who-count num", text: a.done + "/" + a.total })]),
+        el("span", { class: "who-meta", text: metaOf(c.id) }),
+        bar(a.done, a.total)
       ])]));
     });
   }
-  var SCOPE_TAG = { server: "por servidor", account: "por conta" };
-  function tags(it, isMain) {
-    var t = [];
-    if (it.conflict) t.push(el("span", { class: "pill warn", text: "varia" }));
-    if (it.optional) t.push(el("span", { class: "pill", text: "opcional" }));
-    if (it.expires) t.push(el("span", { class: "pill", text: "até " + shortDate(it.expires) }));
-    if (SCOPE_TAG[it.scope] && isMain) t.push(el("span", { class: "pill", text: SCOPE_TAG[it.scope] }));
-    return t;
-  }
-  function moreBody(it) {
-    var kids = [el("p", { text: it.description })];
-    if (it.conflict) kids.push(el("p", { class: "warn" }, [el("b", { text: "Varia entre fontes: " }), it.conflict]));
-    if (it.notes) kids.push(el("p", { text: it.notes }));
-    if (it.sources && it.sources.length) kids.push(el("p", { class: "srcs" }, it.sources.map(function (s) {
-      return el("a", { href: s.url, target: "_blank", rel: "noopener", text: s.label });
-    })));
-    return kids;
-  }
   function taskRow(it, cls) {
-    var id = "c-" + cls + "-" + it.id, done = isDone(cls, it), moreId = "m-" + id;
-    var more = el("div", { class: "task-more", id: moreId, hidden: !state.detail }, moreBody(it));
-    var li = el("li", { class: "task" + (done ? " done" : "") }, [
+    var id = "c-" + cls + "-" + it.id, done = isDone(cls, it), moreId = "m-" + id, np = nameParts(it.name);
+    var meta = [it.optional ? "opcional" : "", it.expires ? "até " + shortDate(it.expires) : ""].filter(Boolean).join(" · ");
+    var more = el("div", { class: "task-more", id: moreId, hidden: true }, detailBody(it, cls));
+    var li = el("li", { class: "task" + (done ? " done" : "") + (it.optional ? " opt" : "") }, [
       el("div", { class: "task-line" }, [
         el("input", { type: "checkbox", class: "check", id: id, checked: done,
           onchange: function (e) {
             if (e.target.checked) state.done[key(cls, it.id)] = Date.now(); else delete state.done[key(cls, it.id)];
             save(); li.classList.toggle("done", e.target.checked); refreshCounts();
           } }),
-        el("label", { for: id, class: "task-name", text: it.name }),
-        el("span", { class: "tags" }, tags(it, cls === state.main)),
-        el("button", { type: "button", class: "more", "aria-expanded": state.detail ? "true" : "false", "aria-controls": moreId,
-          "aria-label": "Detalhes: " + it.name,
+        el("label", { for: id, class: "task-name" }, [np[0], np[1] ? el("span", { class: "task-sub", text: np[1] }) : null]),
+        el("span", { class: "task-meta", text: meta }),
+        el("button", { type: "button", class: "more", "aria-expanded": "false", "aria-controls": moreId,
+          "aria-label": "Detalhes de " + np[0],
           onclick: function (e) { var o = more.hidden; more.hidden = !o; e.currentTarget.setAttribute("aria-expanded", o ? "true" : "false"); } })
       ]),
       more
     ]);
     return li;
   }
-  function groupHead(freq) {
+  function groupCount(freq) {
     var p = progress(selected, freq);
-    return [el("h3", { text: freq === "daily" ? "Diárias" : "Semanais" }), bar(p.done, p.total),
-      el("span", { class: "count num" }, [el("b", { text: String(p.done) }), " de " + p.total])];
+    return p.done + " de " + p.total;
   }
   function refreshCounts() {
-    $$(".group[data-freq]").forEach(function (g) { $(".group-head", g).replaceChildren.apply($(".group-head", g), groupHead(g.dataset.freq)); });
+    $$(".group[data-freq]").forEach(function (g) { $(".count", g).textContent = groupCount(g.dataset.freq); });
     renderRoster(); renderFinding();
   }
   function renderPanel() {
-    var c = BY_ID[selected], isMain = c.id === state.main, p = $("#panel"), nick = state.chars[c.id].nick;
-    var seg = el("div", { class: "segmented", role: "group", "aria-label": "Mostrar descrições" }, [
-      el("button", { type: "button", "aria-pressed": state.detail ? "false" : "true", text: "Compacto", onclick: function () { setDetail(false); } }),
-      el("button", { type: "button", "aria-pressed": state.detail ? "true" : "false", text: "Detalhes", onclick: function () { setDetail(true); } })
-    ]);
+    var c = BY_ID[selected], isMain = c.id === state.main, p = $("#panel");
     var kids = [
       el("header", { class: "char-head" }, [
-        sigil(c.id),
-        el("div", { class: "char-title" }, [
-          el("h2", { id: "t-char" }, [label(c.id), el("span", { class: "pill" + (isMain ? " main" : ""), text: role(c.id) })]),
-          el("p", { text: (nick ? c.name + " · " : "") + (isMain ? "Tarefas de servidor ficam aqui." : "Só o que é por personagem.") })
-        ]),
-        el("div", { class: "char-tools" }, [seg, el("button", { class: "btn small", type: "button", text: "Desmarcar",
+        el("div", null, [el("h2", { id: "t-char", text: label(c.id) }), el("p", { text: metaOf(c.id) })]),
+        el("button", { class: "btn ghost", type: "button", text: "Desmarcar",
           "aria-label": "Desmarcar diárias e semanais de " + label(c.id),
           onclick: function () {
             Object.keys(state.done).forEach(function (k) {
@@ -281,25 +229,19 @@
               if (k.indexOf(c.id + ":") === 0 && it && (it.frequency === "daily" || it.frequency === "weekly")) delete state.done[k];
             });
             save(); renderAll(); toast(label(c.id) + " desmarcado");
-          } })])
+          } })
       ])
     ];
-    if (!isMain) kids.push(el("p", { class: "char-note", text: D.altSummary }));
     ["daily", "weekly"].forEach(function (f) {
       var list = itemsFor(c.id, f).sort(function (a, b) { return a.optional - b.optional; });
-      kids.push(el("div", { class: "group", "data-freq": f }, [
-        el("div", { class: "group-head" }, groupHead(f)),
+      kids.push(el("section", { class: "group", "data-freq": f, "aria-labelledby": "g-" + f }, [
+        el("header", { class: "group-head" }, [el("h3", { id: "g-" + f, text: f === "daily" ? "Diárias" : "Semanais" }), el("span", { class: "count num", text: groupCount(f) })]),
         list.length ? el("ul", { class: "tasks" }, list.map(function (it) { return taskRow(it, c.id); }))
-          : el("p", { class: "group-empty", text: "Nada aqui pra esse personagem." })
+          : el("p", { class: "empty", text: "Nada aqui pra esse personagem." })
       ]));
     });
+    if (!isMain) kids.push(el("details", { class: "tip" }, [el("summary", { text: "Quanto tempo leva uma alt" }), el("p", { text: D.altSummary })]));
     p.replaceChildren.apply(p, kids);
-  }
-  function setDetail(on) {
-    state.detail = on; save();
-    $$("#panel .task-more").forEach(function (m) { m.hidden = !on; });
-    $$("#panel .more").forEach(function (b) { b.setAttribute("aria-expanded", on ? "true" : "false"); });
-    $$("#panel .segmented button").forEach(function (b, i) { b.setAttribute("aria-pressed", (i === 1) === on ? "true" : "false"); });
   }
   function select(cls, scroll) {
     selected = cls; renderRoster(); renderPanel();
@@ -310,42 +252,26 @@
   function upcoming() {
     return D.events.filter(function (e) { return daysUntil(e.date) >= 0; }).sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
   }
-  function dateRow(e) {
+  function dateRow(e, withDetail) {
     var n = daysUntil(e.date);
-    return el("li", null, [
-      el("span", { class: "d-when num", text: shortDate(e.date) }),
-      el("span", { class: "d-what" }, [el("b", { text: e.title }), el("span", { text: e.detail })]),
-      n <= 3 ? el("span", { class: "pill warn", text: n === 0 ? "hoje" : n === 1 ? "amanhã" : "em " + n + " dias" })
-        : el("span", { class: "d-left num", text: "em " + n + " dias" })
+    return el("li", { class: n <= 3 ? "soon" : null }, [
+      el("span", { class: "d-what" }, [el("b", { text: e.title }), withDetail ? el("span", { text: e.detail }) : null]),
+      el("span", { class: "d-when num", text: n === 0 ? "hoje" : n === 1 ? "amanhã" : n <= 6 ? "em " + n + " dias" : shortDate(e.date) })
     ]);
   }
-  function fillDates(ol, list) {
+  function fillDates(ol, list, withDetail) {
     ol.replaceChildren();
-    list.forEach(function (e) { ol.appendChild(dateRow(e)); });
-    if (!list.length) ol.appendChild(el("li", null, [el("span", { class: "d-when", text: "—" }), el("span", { class: "d-what" }, [el("b", { text: "Nenhuma data pela frente." })])]));
+    list.forEach(function (e) { ol.appendChild(dateRow(e, withDetail)); });
+    if (!list.length) ol.appendChild(el("li", null, [el("span", { class: "d-what" }, [el("b", { text: "Nenhuma data pela frente." })])]));
   }
   function renderDates() {
     var up = upcoming();
-    fillDates($("#datesSoon"), up.slice(0, 4));
-    $("#allDates").textContent = up.length > 4 ? "Ver todas (" + up.length + ")" : "Ver lembretes";
-    fillDates($("#dates"), up);
+    fillDates($("#datesSoon"), up.slice(0, 3), false);
+    $("#allDates").textContent = up.length > 3 ? "Ver as " + up.length + " datas" : "Ver lembretes";
+    fillDates($("#dates"), up, true);
     var S = D.schedule;
-    $("#sched").replaceChildren.apply($("#sched"), S.rows.reduce(function (a, r) { a.push(el("dt", { text: r.when }), el("dd", { text: r.what })); return a; }, []));
+    $("#sched").replaceChildren.apply($("#sched"), S.rows.reduce(function (a, r) { a.push(el("dt", { text: r.what }), el("dd", { text: r.when })); return a; }, []));
     $("#schedNote").textContent = S.note;
-  }
-  function renderRemSummary() {
-    var ol = $("#remSoon"); ol.replaceChildren();
-    var rows = D.items.filter(function (i) { return i.frequency === "recurring" && !expired(i); }).map(function (it) {
-      var chars = visibleChars().filter(function (c) { return applies(it, c.id); });
-      return { it: it, total: chars.length, done: chars.filter(function (c) { return isDone(c.id, it); }).length };
-    }).filter(function (r) { return r.total; });
-    var open = rows.filter(function (r) { return r.done < r.total; });
-    open.slice(0, 5).forEach(function (r) {
-      ol.appendChild(el("li", null, [el("span", { class: "rs-name", text: r.it.name.split(" — ")[0] }),
-        el("span", { class: "rs-count num" }, [el("b", { text: String(r.done) }), " de " + r.total])]));
-    });
-    if (!open.length) ol.appendChild(el("li", null, [el("span", { class: "rs-name", text: "Tudo em dia nesta semana." })]));
-    $("#remSoonMeta").textContent = open.length + " de " + rows.length + " pendentes";
   }
   function renderReminders() {
     function remList(sel, freq) {
@@ -353,31 +279,30 @@
       D.items.filter(function (i) { return i.frequency === freq && !expired(i); }).forEach(function (it) {
         var chars = visibleChars().filter(function (c) { return applies(it, c.id); });
         if (!chars.length) return;
-        var count = el("span", { class: "rem-count num" });
+        var np = nameParts(it.name), count = el("span", { class: "count num" }), li = el("li", { class: "rem" });
         function setCount() {
           var d = chars.filter(function (c) { return isDone(c.id, it); }).length;
-          count.replaceChildren(el("b", { text: String(d) }), " de " + chars.length);
+          count.textContent = chars.length === 1 ? (d ? "feito" : "pendente") : d + " de " + chars.length;
+          li.classList.toggle("done", d === chars.length);
         }
         setCount();
-        var kids = [
-          el("div", { class: "rem-top" }, [el("h3", { text: it.name })].concat(tags(it, false), [count])),
-          el("p", { class: "rem-desc", text: it.description })
-        ];
-        if (it.conflict) kids.push(el("p", { class: "rem-desc warn", text: "Varia entre fontes: " + it.conflict }));
-        if (it.notes) kids.push(el("p", { class: "rem-desc", text: it.notes }));
-        kids.push(el("div", { class: "chips", role: "group", "aria-label": "Feito em: " + it.name }, chars.map(function (c) {
-          var on = isDone(c.id, it);
-          return el("button", { type: "button", class: "chip", "aria-pressed": on ? "true" : "false",
-            title: on ? "Marcado em " + fmtStamp.format(new Date(state.done[key(c.id, it.id)])) : "Marcar " + label(c.id),
-            onclick: function (e) {
-              var k = key(c.id, it.id), b = e.currentTarget;
-              if (isDone(c.id, it)) delete state.done[k]; else state.done[k] = Date.now();
-              save(); b.setAttribute("aria-pressed", isDone(c.id, it) ? "true" : "false"); setCount(); renderRemSummary();
-            } }, [sigil(c.id), label(c.id)]);
-        })));
-        if (it.sources && it.sources.length) kids.push(el("details", null, [el("summary", { text: "Fontes (" + it.sources.length + ")" }),
-          el("p", { class: "srcs" }, it.sources.map(function (s) { return el("a", { href: s.url, target: "_blank", rel: "noopener", text: s.label }); }))]));
-        ul.appendChild(el("li", { class: "rem" }, kids));
+        var marks = el("ul", { class: "marks", "aria-label": "Feito em" }, chars.map(function (c) {
+          var id = "r-" + c.id + "-" + it.id;
+          return el("li", null, [
+            el("input", { type: "checkbox", class: "check", id: id, checked: isDone(c.id, it),
+              onchange: function (e) {
+                var k = key(c.id, it.id);
+                if (e.target.checked) state.done[k] = Date.now(); else delete state.done[k];
+                save(); setCount();
+              } }),
+            el("label", { for: id, text: label(c.id) })
+          ]);
+        }));
+        li.appendChild(el("details", null, [
+          el("summary", null, [el("span", { class: "rem-name" }, [np[0], np[1] ? el("span", { class: "task-sub", text: np[1] }) : null]), count]),
+          el("div", { class: "rem-body" }, [marks].concat(detailBody(it, null)))
+        ]));
+        ul.appendChild(li);
       });
     }
     remList("#remRecurring", "recurring");
@@ -390,7 +315,7 @@
     CLASSES.forEach(function (c) {
       fs.appendChild(el("label", { class: "cp" }, [
         el("input", { type: "radio", name: name, value: c.id, checked: c.id === state.main, onchange: onPick ? function () { onPick(c.id); } : null }),
-        sigil(c.id), el("span", { text: c.name })
+        el("span", { text: c.name })
       ]));
     });
   }
@@ -400,29 +325,23 @@
     CLASSES.forEach(function (c) {
       var ch = state.chars[c.id], isMain = c.id === state.main;
       t.appendChild(el("li", null, [
-        el("span", { class: "ct-class" }, [sigil(c.id), c.name]),
+        el("span", { class: "ct-class", text: c.name }),
         el("input", { class: "input", type: "text", maxlength: "24", placeholder: "Apelido", value: ch.nick, "aria-label": "Apelido do " + c.name,
           onchange: function (e) { ch.nick = e.target.value.trim().slice(0, 24); save(); renderAll(); toast("Salvo"); } }),
-        el("label", { class: "show" }, [isMain ? "main" : "mostrar",
-          el("input", { type: "checkbox", class: "switch", checked: !ch.hidden || isMain, disabled: isMain,
-            "aria-label": isMain ? c.name + " é o main e sempre aparece" : "Mostrar " + c.name,
-            onchange: function (e) { ch.hidden = !e.target.checked; save(); if (ch.hidden && selected === c.id) selected = state.main; renderAll(); } })])
+        isMain ? el("span", { class: "ct-main", text: "main" })
+          : el("input", { type: "checkbox", class: "switch", checked: !ch.hidden, "aria-label": "Mostrar " + c.name,
+            onchange: function (e) { ch.hidden = !e.target.checked; save(); if (ch.hidden && selected === c.id) selected = state.main; renderAll(); } })
       ]));
     });
-    $("#lastReset").textContent = "Último reset: diário em " + fmtStamp.format(new Date(state.lastDaily)) + ", semanal em " + fmtStamp.format(new Date(state.lastWeekly)) + " (Brasília).";
+    $("#lastReset").textContent = "Último reset: diário em " + fmtStamp.format(new Date(state.lastDaily)) + ", semanal em " + fmtStamp.format(new Date(state.lastWeekly)) + ".";
   }
   function setMain(cls) {
     state.main = cls; state.chars[cls].hidden = false; state.chosen = true; save();
     selected = cls; renderAll();
   }
-  function renderChip() {
-    var m = state.main;
-    $("#mainChip").replaceChildren(sigil(m), el("span", { class: "lbl", text: "Main:" }), el("b", { text: label(m) }));
-    $("#mainChip").setAttribute("aria-label", "Main: " + label(m) + ". Trocar em Ajustes");
-  }
   function renderAll() {
     if (!selected || !visibleChars().some(function (c) { return c.id === selected; })) selected = state.main;
-    renderChip(); renderFinding(); renderRoster(); renderPanel(); renderDates(); renderRemSummary(); renderReminders(); renderSettings(); tick();
+    renderFinding(); renderRoster(); renderPanel(); renderDates(); renderReminders(); renderSettings(); tick();
   }
 
   /* ---------- rotas ---------- */
@@ -484,7 +403,8 @@
   }
 
   /* ---------- início ---------- */
-  $("#dailyWhen").textContent = D.reset.dailyLabel + " (Brasília)";
+  $("#dailyCount").title = D.reset.dailyLabel + ", horário de Brasília";
+  $("#weeklyCount").title = D.reset.weeklyLabel + ", horário de Brasília";
   $("#dataUpdated").textContent = D.updated.split("-").reverse().join("/");
   prune(); renderAll(); route(false);
   setInterval(tick, 1000);
