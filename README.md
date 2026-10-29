@@ -2,7 +2,7 @@
 
 Checklist de diárias e semanais do **Aion 2 global** pra quem joga com main + alts. Você marca o que já fez em cada personagem e a página zera sozinha no reset (04:00 de Brasília).
 
-**Acesse:** https://rodrigoos098.github.io/aion2-checklist/
+**Acesse:** https://aion2-checklist.rodrigoos.dev/
 
 ![Checklist no desktop](screenshots/desktop-1440.png)
 
@@ -12,7 +12,7 @@ Checklist de diárias e semanais do **Aion 2 global** pra quem joga com main + a
 - **8 personagens**, um de cada classe: Gladiator, Templar, Assassin, Ranger, Sorcerer, Spiritmaster, Cleric e Chanter. O main e mais 7 alts.
 - **Checklist por personagem.** O que é por servidor (Duty, chaves de Shugo e Invasion, Daily Dungeon, Command Scrolls) só aparece no main. As alts ficam só com o que é por personagem.
 - **Reset automático com contagem regressiva.** Diário às 04:00 de Brasília (07:00 UTC) e semanal na quarta às 04:00.
-- **Visão geral** de todos os personagens: anel com as diárias e barra com as semanais de cada um, e quanto falta no total.
+- **Visão geral** de todos os personagens: quanto cada um já fez das diárias e quanto falta no total.
 - **Lembretes** do que não tem reset fixo: gastar chave de Shugo, lojas com limite vitalício ou mensal (Shugo, Nightmare, temporada), Hidden Cubes, Kinah das alts pro main e as datas de evento que estão chegando.
 - **Apelidos**, esconder personagem que você não joga, **exportar/importar** o progresso em JSON e **zerar na mão** se precisar.
 - Tudo fica no **localStorage** do navegador. Não tem conta, login nem servidor.
@@ -24,6 +24,10 @@ Checklist de diárias e semanais do **Aion 2 global** pra quem joga com main + a
 </p>
 
 ![Lembretes](screenshots/lembretes-1440.png)
+
+## Domínio
+
+O site é servido pelo GitHub Pages no domínio `aion2-checklist.rodrigoos.dev` (arquivo `CNAME` na raiz). No DNS, o subdomínio precisa de um registro `CNAME` apontando pra `rodrigoos098.github.io`. Todos os caminhos são relativos, então também funciona em `rodrigoos098.github.io/aion2-checklist/`.
 
 ## Rodar local
 
@@ -52,7 +56,7 @@ python3 tools/build_data.py
 - Guias da comunidade: [OnlyFarms](https://onlyfarms.gg/guides/aion-2-daily-weekly-checklist/), [aion2.vi.ki](https://aion2.vi.ki/endgame-routine), [Grimvane](https://aion2.grimvane.app/abyss-boss-timers/), [odyle.net](https://odyle.net/en/cuaderno/tienda-shugo-festival/), [Wikily](https://wikily.gg/aion-2/shops/festival-shop) e [TheGamesWiki](https://thegameswiki.com/aion-2/wiki/global-material-farming-planner).
 - A pesquisa completa está em `pesquisa/checklist.md`.
 
-Os números podem mudar entre fontes e entre o KR e o global. Quando as fontes não batem, o item aparece com a tag **varia** e a explicação fica nos detalhes. Achou algo errado? Abre uma issue.
+Os números podem mudar entre fontes e entre o KR e o global. Quando as fontes não batem, a explicação fica nos detalhes do item (a setinha ao lado dele). Achou algo errado? Abre uma issue.
 
 ---
 

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aion 2 Checklist · diárias e semanais do main e das alts</title>
 <meta name="description" content="Checklist de diárias e semanais do Aion 2 global pro main e 7 alts, com reset no horário de Brasília.">
-<meta name="theme-color" content="#0d0c0b">
+<meta name="theme-color" content="#0e0d0c">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d0c0b'/%3E%3Cpath d='M16 6v20M16 10c-3-3-7-3.5-10-2 2 3 5 5 10 6M16 10c3-3 7-3.5 10-2-2 3-5 5-10 6M16 17c-2-1.5-4.5-1.8-6.5-.8 1.3 1.9 3.3 3 6.5 3.4M16 17c2-1.5 4.5-1.8 6.5-.8-1.3 1.9-3.3 3-6.5 3.4' fill='none' stroke='%23e8c26a' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230e0d0c'/%3E%3Cpath d='M16 6v20M16 10c-3-3-7-3.5-10-2 2 3 5 5 10 6M16 10c3-3 7-3.5 10-2-2 3-5 5-10 6M16 17c-2-1.5-4.5-1.8-6.5-.8 1.3 1.9 3.3 3 6.5 3.4M16 17c2-1.5 4.5-1.8 6.5-.8-1.3 1.9-3.3 3-6.5 3.4' fill='none' stroke='%23e3bf6b' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,20 +23,10 @@
       <span>Aion 2 Checklist</span>
     </a>
     <nav class="nav" id="nav" aria-label="Seções">
-      <a href="#/" data-route="hoje">
-        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="3"/><path d="m7 10 2 2 4-4"/></svg>
-        <span>Checklist</span>
-      </a>
-      <a href="#/lembretes" data-route="lembretes">
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 8a4.5 4.5 0 0 1 9 0c0 4 1.5 5.5 1.5 5.5H4S5.5 12 5.5 8M8.5 16a1.6 1.6 0 0 0 3 0"/></svg>
-        <span>Lembretes</span>
-      </a>
-      <a href="#/ajustes" data-route="ajustes">
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6h7M15 6h1M4 14h1M9 14h7"/><circle cx="13" cy="6" r="2"/><circle cx="7" cy="14" r="2"/></svg>
-        <span>Ajustes</span>
-      </a>
+      <a href="#/" data-route="hoje">Checklist</a>
+      <a href="#/lembretes" data-route="lembretes">Lembretes</a>
+      <a href="#/ajustes" data-route="ajustes">Ajustes</a>
     </nav>
-    <a class="main-chip" id="mainChip" href="#/ajustes"></a>
   </div>
 </header>
 
@@ -45,21 +35,13 @@
     <div class="title-text">
       <h1 id="pageTitle">Checklist</h1>
       <p class="sub" data-for="hoje" id="finding">Carregando…</p>
-      <p class="sub" data-for="lembretes" hidden>Coisa sem reset diário. Os recorrentes voltam a ficar pendentes toda quarta.</p>
-      <p class="sub" data-for="ajustes" hidden>Tudo fica salvo só neste navegador. Cada mudança salva na hora.</p>
+      <p class="sub" data-for="lembretes" hidden>O que não reseta todo dia.</p>
+      <p class="sub" data-for="ajustes" hidden>Fica salvo só neste navegador.</p>
     </div>
-    <div class="clocks" data-for="hoje">
-      <div class="clock">
-        <span class="clock-label">Reset diário</span>
-        <span class="clock-value num" id="dailyCount">—</span>
-        <span class="clock-meta" id="dailyWhen"></span>
-      </div>
-      <div class="clock">
-        <span class="clock-label">Reset semanal</span>
-        <span class="clock-value num" id="weeklyCount">—</span>
-        <ol class="week" id="week" aria-hidden="true"></ol>
-      </div>
-    </div>
+    <dl class="clocks" data-for="hoje">
+      <div class="clock"><dt>Reset diário</dt><dd class="num" id="dailyCount">—</dd></div>
+      <div class="clock"><dt>Reset semanal</dt><dd class="num" id="weeklyCount">—</dd></div>
+    </dl>
   </div>
 
   <section class="view" data-view="hoje" aria-label="Checklist">
@@ -67,52 +49,38 @@
     <ol class="roster" id="roster" aria-labelledby="t-roster"></ol>
 
     <div class="split">
-      <section class="panel char" id="panel" aria-labelledby="t-char"></section>
-      <aside class="rail">
-        <section class="panel" aria-labelledby="t-soon">
-          <header class="panel-head">
-            <h2 id="t-soon">Próximas datas</h2>
-            <a class="card-link" href="#/lembretes" id="allDates">Ver lembretes</a>
-          </header>
-          <ol class="dates" id="datesSoon"></ol>
-        </section>
-        <section class="panel" aria-labelledby="t-rs">
-          <header class="panel-head">
-            <h2 id="t-rs">Lembretes da semana</h2>
-            <span class="meta num" id="remSoonMeta"></span>
-          </header>
-          <ol class="rem-soon" id="remSoon"></ol>
-          <p class="note"><a class="card-link" href="#/lembretes">Marcar nos lembretes</a></p>
-        </section>
-        <section class="panel" aria-labelledby="t-pvp">
-          <header class="panel-head"><h2 id="t-pvp">PvP da semana</h2></header>
-          <dl class="sched" id="sched"></dl>
-          <p class="note" id="schedNote"></p>
-        </section>
+      <section class="panel" id="panel" aria-labelledby="t-char"></section>
+      <aside class="rail" aria-labelledby="t-soon">
+        <h2 id="t-soon">Próximas datas</h2>
+        <ol class="dates" id="datesSoon"></ol>
+        <a class="link" href="#/lembretes" id="allDates">Ver lembretes</a>
       </aside>
     </div>
   </section>
 
   <section class="view" data-view="lembretes" aria-label="Lembretes" hidden>
-    <section class="panel" aria-labelledby="t-dates">
-      <header class="panel-head"><h2 id="t-dates">Datas</h2><span class="meta">dias contados no horário de Brasília</span></header>
-      <ol class="dates dates-wide" id="dates"></ol>
-    </section>
-    <div class="stack rem-stack">
-      <section class="panel" aria-labelledby="t-rec">
-        <header class="panel-head">
-          <h2 id="t-rec">Toda semana</h2>
-          <span class="meta">desmarca sozinho na quarta</span>
-        </header>
-        <ul class="rems" id="remRecurring"></ul>
-      </section>
-      <section class="panel" aria-labelledby="t-one">
-        <header class="panel-head">
-          <h2 id="t-one">Uma vez por personagem</h2>
-          <span class="meta">fica marcado</span>
-        </header>
-        <ul class="rems" id="remOneoff"></ul>
-      </section>
+    <div class="split">
+      <div class="panel">
+        <section aria-labelledby="t-rec">
+          <header class="group-head"><h2 id="t-rec">Toda semana</h2><span class="count">desmarca na quarta</span></header>
+          <ul class="rems" id="remRecurring"></ul>
+        </section>
+        <section class="group" aria-labelledby="t-one">
+          <header class="group-head"><h2 id="t-one">Uma vez só</h2><span class="count">fica marcado</span></header>
+          <ul class="rems" id="remOneoff"></ul>
+        </section>
+      </div>
+      <aside class="rail">
+        <section aria-labelledby="t-dates">
+          <h2 id="t-dates">Datas</h2>
+          <ol class="dates" id="dates"></ol>
+        </section>
+        <section class="rail-block" aria-labelledby="t-pvp">
+          <h2 id="t-pvp">PvP da semana</h2>
+          <dl class="sched" id="sched"></dl>
+          <p class="note" id="schedNote"></p>
+        </section>
+      </aside>
     </div>
   </section>
 
@@ -121,43 +89,37 @@
       <section class="set-row" aria-labelledby="t-main">
         <div class="set-label">
           <h2 id="t-main">Main</h2>
-          <p>Recebe as tarefas de servidor: Duty, Shugo, Invasion, Daily Dungeon e Command Scrolls. As outras 7 classes viram alts.</p>
+          <p>Fica com as tarefas de servidor. As outras classes viram alts.</p>
         </div>
-        <div class="set-panel">
-          <fieldset class="class-pick" id="mainPick"><legend class="vh">Classe do main</legend></fieldset>
-        </div>
+        <fieldset class="class-pick" id="mainPick"><legend class="vh">Classe do main</legend></fieldset>
       </section>
 
       <section class="set-row" aria-labelledby="t-chars">
         <div class="set-label">
           <h2 id="t-chars">Personagens</h2>
-          <p>Apelido aparece no lugar da classe. Esconde quem você não joga; o main sempre aparece.</p>
+          <p>Apelido no lugar da classe. Esconda quem você não joga.</p>
         </div>
-        <div class="set-panel">
-          <ul class="char-table" id="charTable"></ul>
-        </div>
+        <ul class="char-table" id="charTable"></ul>
       </section>
 
       <section class="set-row" aria-labelledby="t-bkp">
         <div class="set-label">
           <h2 id="t-bkp">Backup</h2>
-          <p>Exporta pra levar o progresso pra outro navegador ou pro celular.</p>
+          <p>Pra levar o progresso pra outro navegador.</p>
         </div>
-        <div class="set-panel">
-          <div class="btn-row">
-            <button class="btn primary" type="button" id="exportBtn">Exportar JSON</button>
-            <label class="btn" for="importFile">Importar JSON</label>
-            <input type="file" id="importFile" accept="application/json,.json" class="vh">
-          </div>
+        <div class="btn-row">
+          <button class="btn primary" type="button" id="exportBtn">Exportar JSON</button>
+          <label class="btn" for="importFile">Importar JSON</label>
+          <input type="file" id="importFile" accept="application/json,.json" class="vh">
         </div>
       </section>
 
       <section class="set-row" aria-labelledby="t-reset">
         <div class="set-label">
           <h2 id="t-reset">Zerar na mão</h2>
-          <p>O reset já é automático. Use se marcou errado ou se quiser começar do zero.</p>
+          <p>O reset é automático. Use só se marcou errado.</p>
         </div>
-        <div class="set-panel">
+        <div>
           <div class="btn-row">
             <button class="btn" type="button" data-reset="daily">Zerar diárias</button>
             <button class="btn" type="button" data-reset="weekly">Zerar semanais</button>
@@ -170,15 +132,14 @@
   </section>
 
   <footer class="foot">
-    <p class="foot-name">Aion 2 Checklist</p>
-    <p>Projeto de fã, sem vínculo com a NCSOFT. Dados de <span id="dataUpdated"></span>, tirados dos vídeos do TheWhelps e de guias da comunidade. Item com “varia” ainda não foi confirmado no global. <a href="https://github.com/rodrigoos098/aion2-checklist">Código no GitHub</a>.</p>
+    <p>Projeto de fã, sem vínculo com a NCSOFT. Dados de <span id="dataUpdated"></span>, do TheWhelps e de guias da comunidade. <a href="https://github.com/rodrigoos098/aion2-checklist">GitHub</a></p>
   </footer>
 </main>
 
 <dialog class="chooser" id="chooser" aria-labelledby="t-choose">
   <form method="dialog">
     <h2 id="t-choose">Qual é o seu main?</h2>
-    <p>As tarefas de servidor ficam só nele e as outras 7 classes viram alts. Dá pra trocar depois em Ajustes.</p>
+    <p>Ele fica com as tarefas de servidor. Dá pra trocar depois.</p>
     <fieldset class="class-pick" id="classPick"><legend class="vh">Classe do main</legend></fieldset>
     <div class="btn-row end"><button class="btn primary" value="ok">Confirmar</button></div>
   </form>
